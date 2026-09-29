@@ -1,51 +1,67 @@
-# Ex.No-09-Building-a-Simple-AI-Agent-AI-Tourist-Guiide-for-India
-## Aim : To design, implement and test a simple goal-based AI agent in Python that plans a personalised India trip itinerary for a tourist, based on the tourist's interest, trip duration and daily budget.
-Introduction
-An AI agent is anything that can perceive its environment through sensors and act upon that environment through actuators in order to achieve a specific goal. A useful way to describe an agent is the PEAS framework — Performance measure, Environment, Actuators and Sensors. Agents are commonly classified as simple reflex agents (react only to the current input), goal-based agents (choose actions that achieve a defined goal) and utility-based agents (choose the action that maximises a measure of “goodness”). In this experiment, an AI Tourist Agent for India is built as a goal-based agent: given a tourist's goal (an enjoyable trip within their interest and budget), the agent perceives the tourist's preferences, reasons over a knowledge base of Indian destinations, plans a day-wise itinerary, and acts by presenting the recommended plan.
-Procedure
-### Step 1: Import Required Libraries
-●	textwrap – used only to neatly wrap long destination descriptions to a fixed line width while printing the itinerary.
-<img width="584" height="34" alt="image" src="https://github.com/user-attachments/assets/d7bd1246-346f-41f8-aec1-fddca7a8e120" />
-### Step 2: Define the Agent's Knowledge Base (Destination Database)
-●	The agent's environment knowledge is stored as a list of dictionaries, one per Indian destination.
-●	Each destination has a category (heritage, spiritual, beach, hill_station, adventure, nature, wildlife), an estimated cost per day, the best travel season and a short description.
-●	This knowledge base plays the same role for the agent that the environment model plays for any goal-based agent — it is what the agent reasons over to choose its actions.
-<img width="619" height="236" alt="image" src="https://github.com/user-attachments/assets/4182dfe7-9114-4557-a80f-a8756a48b2f5" />
-<img width="615" height="347" alt="image" src="https://github.com/user-attachments/assets/320ffc13-4890-4761-9499-34426c329b35" />
-Destination Knowledge Base Summary
-The table below summarises the destinations available to the agent:
-<img width="673" height="213" alt="image" src="https://github.com/user-attachments/assets/c5fea0c9-95f2-482f-a1fb-d9cfafdcf2ea" />
-### Step 3: Perceive — Read the Tourist's Goal / Preferences
-●	The perceive() function represents the agent's sensors: it reads the tourist's profile (interest category, number of days, daily budget) and displays it back to confirm what was understood.
-<img width="585" height="109" alt="image" src="https://github.com/user-attachments/assets/81c0cc39-ba1f-4736-8a51-1eb1ba2ff3f8" />
-### Step 4: Reason — Filter and Rank Matching Destinations
-●	The agent compares every destination in its knowledge base against the tourist's goal: same category and cost per day within the daily budget.
-●	If nothing fits the exact budget, it falls back to all destinations of the requested category, sorted from cheapest to costliest, so the agent always tries to return a useful plan.
-<img width="615" height="148" alt="image" src="https://github.com/user-attachments/assets/ba53e68e-5fb0-4673-83cf-5b705751df15" />
-### Step 5: Plan — Build a Day-wise Itinerary
-●	The agent allocates up to 3 days per destination and moves to the next matching destination once those days are used, cycling back to the first if needed for longer trips.
-●	Consecutive days at the same destination are merged into a single itinerary block, and the total estimated cost is calculated as it plans.
-<img width="612" height="290" alt="image" src="https://github.com/user-attachments/assets/f793c485-908e-4e98-84ca-119671909652" />
-### Step 6: Act — Present the Recommendation to the Tourist
-●	The act() function represents the agent's actuator: it prints a readable, day-wise itinerary with the destination, description, best season and cost for each leg of the trip, followed by the total estimated cost.
-<img width="576" height="177" alt="image" src="https://github.com/user-attachments/assets/55712bdf-2b82-42b0-83f7-5b3eb7d94263" />
-<img width="632" height="89" alt="image" src="https://github.com/user-attachments/assets/9a254225-96b6-4729-be35-29cac298c28d" />
-### Step 7: The Agent Loop — Perceive → Reason → Plan → Act
-●	run_agent() ties the four stages together into a single agent cycle, exactly as a real autonomous agent continuously perceives, reasons and acts within its environment.
-<img width="432" height="89" alt="image" src="https://github.com/user-attachments/assets/0a46568e-9781-457b-8a10-e2a97a95c0a2" />
-### Step 8: Test the Agent with Sample Tourist Profiles
-●	Three realistic tourist profiles are used to test the agent across different interests and budgets: a budget heritage traveller, a mid-budget adventure seeker, and a family looking for a beach holiday.
-<img width="616" height="241" alt="image" src="https://github.com/user-attachments/assets/17613086-5b61-44f1-8d85-cbbae85cfc4b" />
-### Output
-Agent Output – Session 1 (Budget Heritage Traveller)
-●	The agent correctly perceives Ananya's preferences, reasons that Taj Mahal and Jaipur are the matching heritage destinations within budget, and plans a 6-day itinerary split evenly between them.
-<img width="677" height="373" alt="image" src="https://github.com/user-attachments/assets/c92635bd-dffc-470d-ad75-2b8f806e3c70" />
-Agent Output – Sessions 2 and 3 (Adventure Seeker and Beach Holiday)
-●	For the adventure seeker, the agent plans a trip across Coorg and Spiti Valley, both within the Rs. 5,000/day budget.
-●	For the beach-holiday family, the agent alternates between Goa and the Andaman Islands to fill all 7 requested days, and the total estimated cost is calculated automatically for each plan.
-<img width="620" height="532" alt="image" src="https://github.com/user-attachments/assets/d0d7a414-912d-4768-8b4f-933a1037a4c6" />
-Fig 2: Console output for the adventure-seeker and beach-holiday profiles, each with a complete itinerary and total cost.
-## Conclusion
-Thus, a simple goal-based AI Tourist Agent for India was successfully designed, implemented and tested using Python. The agent follows the classic Perceive → Reason → Plan → Act cycle: it perceives a tourist's goal (interest, duration and budget), reasons over a knowledge base of Indian destinations to find matching options, plans a day-wise itinerary, and acts by presenting a complete, costed trip recommendation. This experiment demonstrates the core building blocks of autonomous agents — environment knowledge, perception, reasoning/planning and action — on which more advanced AI agents (using machine learning, real-time APIs and large language models) are built.
 
 
+# EX.NO.10-Creating-a-Custom-GPT-for-Saveetha-Engineering-College-using-OpenAI-s-GPT-Builder
+## AIM
+To understand the concept of a Custom GPT and to design, build, configure, and publish a Custom GPT chatbot for Saveetha Engineering College (www.saveetha.ac.in) using OpenAI's GPT Builder, so that it can answer student and visitor questions about the college's courses, admissions, fees, facilities, and placements.
+## WHAT IS A CUSTOM GPT?
+A Custom GPT is a personalised version of ChatGPT that can be built without writing any code. It is created by giving the GPT Builder three things: a name, a set of Instructions that describe how it should behave, and (optionally) reference files called Knowledge that it reads before answering. Once published, the Custom GPT behaves like a specialised chatbot — for example, a “Saveetha Engineering College Assistant” that always answers using the college's own information instead of general internet knowledge.
+### TOOLS REQUIRED
+•	Web browser – Google Chrome or Microsoft Edge
+•	A ChatGPT account with a Plus, Team, Enterprise, or Edu subscription (the GPT Builder is not available on the free plan)
+•	OpenAI's GPT Builder – built into ChatGPT, opened from chatgpt.com/create
+•	Reference material about Saveetha Engineering College, collected from www.saveetha.ac.in (About, Courses, Admission, Placement, and Contact pages)
+•	MS Word / Google Docs – to organise the collected information into clean Knowledge files (PDF/DOCX) before uploading
+•	(Optional) Canva or the built-in DALL·E image generator – to design a profile picture/logo for the GPT
+## PROCEDURE
+### Step 1: Collecting College Information (Knowledge Preparation)
+Before building the GPT, gather accurate information about Saveetha Engineering College from its official website www.saveetha.ac.in. Visit and note down content from pages such as About Us, Departments/Courses Offered, Admission Procedure, Fee Structure, Placements, Facilities, and Contact Details. Paste this content into a Word document and save it as a PDF. This file becomes the “Knowledge” for the GPT, so that it answers only with correct, college-specific information instead of guessing.
+### Step 2: Signing in to ChatGPT
+Open a web browser and go to chatgpt.com. Sign in using an existing OpenAI account, or create a new one. Make sure the account is upgraded to a ChatGPT Plus, Team, Enterprise, or Edu plan, since the GPT Builder is a paid-plan feature and is not available on the free version.
+### Step 3: Opening the GPT Builder
+On the left sidebar, click “Explore GPTs” and then click the “+ Create” button (or go directly to chatgpt.com/create). This opens the GPT Builder, which has two tabs: Create and Configure.
+### Step 4: Building the GPT Conversationally (Create Tab)
+In the Create tab, type a plain-English description of the required GPT in the message box, for example:
+“Create a GPT for Saveetha Engineering College that answers questions about admissions, courses, fees, placements, and campus facilities in a friendly and professional tone.”
+The Builder chats back and automatically suggests a name, a short description, and a profile picture for the GPT based on this description.
+### Step 5: Fine-Tuning with the Configure Tab
+Switch to the Configure tab for full manual control over the GPT, and fill in the following fields:
+•	Name: e.g., “Saveetha Engineering College Assistant”
+•	Description: a one-line summary, e.g., “Your guide to admissions, courses, fees, and placements at Saveetha Engineering College.”
+•	Instructions: a detailed system prompt describing the GPT's role, tone, and rules (see the sample instructions given later in this report).
+•	Conversation starters: four sample questions users can click to begin the chat, for example:
+1.	What B.Tech courses does Saveetha Engineering College offer?
+2.	How do I apply for admission?
+3.	What is the placement record of the college?
+4.	Where is the campus located?
+### Step 6: Uploading Knowledge Files
+In the Knowledge section of the Configure tab, click “Upload files” and add the PDF/DOCX file prepared in Step 1. This lets the GPT search and quote from the actual college content instead of guessing, which keeps its answers accurate and trustworthy. As a best practice, upload 2 to 5 well-organised files rather than many small ones, since retrieval accuracy drops once too many files are added.
+### Step 7: Enabling Capabilities
+In the Capabilities section, select the tools the GPT is allowed to use:
+•	Web Browsing – to fetch live information if the uploaded knowledge file becomes outdated
+•	Code Interpreter & Data Analysis – not usually needed for a college-information bot, so it can be left off
+•	Image Generation (DALL·E) – optional, for generating a campus or course-related illustration
+For a simple college-information GPT, enabling Web Browsing along with the uploaded Knowledge is generally enough.
+### Step 8: Setting Up Actions (Optional, Advanced)
+Actions allow the GPT to call an external API — for example, to check live seat availability or fetch the latest fee notification from a college server. This requires an API endpoint and an OpenAPI schema, so it is optional for a basic informational GPT and can be skipped by beginners.
+### Step 9: Testing the GPT
+Use the Preview panel on the right side of the Builder to chat with the GPT before publishing it. Ask sample questions such as “What courses are offered?” or “How do I apply for admission?” and check whether the answers are correct, polite, and based on the uploaded knowledge. If any answer is wrong or incomplete, edit the Instructions or Knowledge files and test again until the responses are accurate.
+### Step 10: Publishing and Sharing
+Click the “Create” (or “Save”) button in the top-right corner of the Builder. Choose who can access the GPT:
+•	Only me – for personal testing
+•	Anyone with the link – to share with students and faculty of the department
+•	GPT Store (Public) – to make the GPT visible to all ChatGPT users
+Click “Publish”/“Update” to finish. Copy the generated link and share it with students through the college portal, WhatsApp group, or LMS.
+### SAMPLE INSTRUCTIONS (SYSTEM PROMPT) FOR THE GPT
+<br><img width="587" height="151" alt="image" src="https://github.com/user-attachments/assets/cd378cba-9488-4cc9-9974-99a44f3695f8" /></br>
+## SAMPLE OUTPUT SCREEN
+The screen below shows a sample conversation with the published “Saveetha Engineering College Assistant” Custom GPT, illustrating how it answers a student's admission query using the uploaded knowledge files.
+</br><img width="545" height="385" alt="image" src="https://github.com/user-attachments/assets/677bee25-a510-48db-824d-4dbb5795d610" /></br>
+## OUTPUT
+A working Custom GPT named “Saveetha Engineering College Assistant” is created and published. When a user asks questions like “What courses does Saveetha offer?” or “How can I apply for B.Tech admission?”, the GPT replies with accurate information drawn from the uploaded college knowledge files, in a friendly and professional tone.
+## RESULT
+Thus, a Custom GPT chatbot for Saveetha Engineering College was successfully designed, configured with knowledge files and instructions, tested, and published using OpenAI's GPT
+Builder.
+
+## CONCLUSION
+
+### In conclusion, building a Custom GPT shows how modern generative AI tools let anyone — even without programming knowledge — create a specialised, organisation-branded chatbot in a few simple steps. By combining clear instructions, focused knowledge files, and the right capabilities, Saveetha Engineering College can offer students and visitors instant, accurate answers to their questions, saving time for both the institution and its users.
